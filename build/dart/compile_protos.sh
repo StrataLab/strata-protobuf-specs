@@ -17,7 +17,7 @@ protoc \
     --dart_out=grpc:../../../lib \
     $(find ./google -name '*.proto')
 
-# Now compile Topl's type protos
+# Now compile Stata's type protos
 cd ../proto
 protoc \
     --dart_out=grpc:../../../lib \

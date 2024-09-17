@@ -1,9 +1,9 @@
-name: topl_protobuf
-description: Topl proto definitions
+name: strata_protobuf
+description: Stratalab proto definitions
 
 publish_to: 'none'
 
-version: 2.0.0+1
+version: 0.1.0+1
 
 environment:
   sdk: ">=3.0.0"

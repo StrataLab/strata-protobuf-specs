@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package co.topl.consensus.models;
+package xyz.stratalab.consensus.models;
 
 import "validate/validate.proto";
 

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package co.topl.brambl.models;
+package xyz.stratalab.brambl.models;
 
 import 'validate/validate.proto';
 
@@ -54,7 +54,7 @@ message Event {
 
   message IoTransaction {
     //the range of acceptable slots the transaction can be accepted into
-    co.topl.brambl.models.transaction.Schedule schedule = 1 [(validate.rules).message.required = true];
+    xyz.stratalab.brambl.models.transaction.Schedule schedule = 1 [(validate.rules).message.required = true];
     quivr.models.SmallData metadata = 4 [(validate.rules).message.required = true];
   }
 

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package co.topl.brambl.models.common;
+package xyz.stratalab.brambl.models.common;
 
 // Immutable byte representation of a value
 message ImmutableBytes {
