@@ -27,7 +27,8 @@ jobs:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
 
   publish-dart:
-    name: Publish Scala
+    if: ${{ startsWith(github.ref, 'refs/tags/') }}
+    name: Publish Dart
     needs: build
     runs-on: ubuntu-latest
     permissions:
