@@ -65,6 +65,12 @@ jobs:
         run: |
           ./compile_protos.sh
           dart pub get
+          dart run tool/generate_export_files.dart
           dart analyze
           dart test
         working-directory: build/dart
+      - name: Upload Dart Compiled Lib
+        uses: actions/upload-artifact@v4
+        with:
+          name: dart-compiled-lib
+          path: "build/dart/lib"

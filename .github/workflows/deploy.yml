@@ -8,8 +8,8 @@ jobs:
   build:
     name: Protoc Test Build and Compile
     uses: ./.github/workflows/_protoc_build.yml
-  publish:
-    name: Build and Publish
+  publish-scala:
+    name: Publish Scala
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Deploy (release only)
+      - name: Deploy Scala (release only)
         run: sbt ci-release
         working-directory: ./build/scala
         env:
@@ -25,3 +25,25 @@ jobs:
           PGP_SECRET: ${{ secrets.PGP_SECRET }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+
+  publish-dart:
+    name: Publish Scala
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Required for authentication using OIDC
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: dart-lang/setup-dart@v1
+      - uses: actions/download-artifact@v4
+        with:
+          name: dart-compiled-lib
+          path: build/dart
+      - run: dart pub get
+        working-directory: ./build/dart
+      - name: Deploy Dart (release only)
+        run: dart pub publish --force
+        working-directory: ./build/dart
