@@ -15,7 +15,7 @@ import 'google/protobuf/wrappers.proto';
 
 import "validate/validate.proto";
 
-package co.topl.genus.services;
+package xyz.stratalab.genus.services;
 
 // Used to identify the status of a Txo.
 enum TxoState {

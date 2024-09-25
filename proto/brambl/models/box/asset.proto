@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package co.topl.brambl.models.box;
+package xyz.stratalab.brambl.models.box;
 
 enum FungibilityType {
   // `group-and-series` means that both the series and the group are considered for fungibility.

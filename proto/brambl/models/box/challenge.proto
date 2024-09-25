@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package co.topl.brambl.models.box;
+package xyz.stratalab.brambl.models.box;
 
 
 import 'brambl/models/address.proto';

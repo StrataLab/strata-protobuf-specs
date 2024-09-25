@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package co.topl.node.services;
+package xyz.stratalab.node.services;
 
 import 'consensus/models/block_id.proto';
 import 'consensus/models/block_header.proto';
@@ -50,7 +50,7 @@ service NodeRpc {
 // Request type for BroadcastTransaction
 message BroadcastTransactionReq {
   // A "proven" Transaction that is meant to be included in the blockchain
-  co.topl.brambl.models.transaction.IoTransaction transaction = 1 [(validate.rules).message.required = true];
+  xyz.stratalab.brambl.models.transaction.IoTransaction transaction = 1 [(validate.rules).message.required = true];
 }
 
 // Response type for BroadcastTransaction
@@ -62,12 +62,12 @@ message CurrentMempoolReq {}
 // Response type for CurrentMempool
 message CurrentMempoolRes {
   // A list of Transaction IDs that are currently in the node's mempool
-  repeated co.topl.brambl.models.TransactionId transactionIds = 1;
+  repeated xyz.stratalab.brambl.models.TransactionId transactionIds = 1;
 }
 
 // Request type for CurrentMempoolContainsReq
 message CurrentMempoolContainsReq {
-  co.topl.brambl.models.TransactionId transactionId = 1[(validate.rules).message.required = true];
+  xyz.stratalab.brambl.models.TransactionId transactionId = 1[(validate.rules).message.required = true];
 }
 
 // Response type for CurrentMempoolContainsRes
@@ -79,39 +79,39 @@ message CurrentMempoolContainsRes {
 // Request type for FetchBlockHeader
 message FetchBlockHeaderReq {
   // The ID of the block to retrieve
-  co.topl.consensus.models.BlockId blockId = 1 [(validate.rules).message.required = true];
+  xyz.stratalab.consensus.models.BlockId blockId = 1 [(validate.rules).message.required = true];
 }
 
 // Response type for FetchBlockHeader
 message FetchBlockHeaderRes {
   // The Block Header associated with the requested ID.  None/null if not found.
   // optional
-  co.topl.consensus.models.BlockHeader header = 1;
+  xyz.stratalab.consensus.models.BlockHeader header = 1;
 }
 
 // Request type for FetchBlockBody
 message FetchBlockBodyReq {
   // The ID of the block to retrieve
-  co.topl.consensus.models.BlockId blockId = 1 [(validate.rules).message.required = true];
+  xyz.stratalab.consensus.models.BlockId blockId = 1 [(validate.rules).message.required = true];
 }
 
 // Response type for FetchBlockBody
 message FetchBlockBodyRes {
   // The Block Body associated with the requested ID.  None/null if not found.
   // optional
-  co.topl.node.models.BlockBody body = 1;
+  xyz.stratalab.node.models.BlockBody body = 1;
 }
 
 // Request type for FetchTransaction
 message FetchTransactionReq {
-  co.topl.brambl.models.TransactionId transactionId = 1 [(validate.rules).message.required = true];
+  xyz.stratalab.brambl.models.TransactionId transactionId = 1 [(validate.rules).message.required = true];
 }
 
 // Response type for FetchTransaction
 message FetchTransactionRes {
   // The Transaction associated with the requested ID.  None/null if not found.
   // optional
-  co.topl.brambl.models.transaction.IoTransaction transaction = 1;
+  xyz.stratalab.brambl.models.transaction.IoTransaction transaction = 1;
 }
 
 // Request type for FetchBlockIdAtHeight
@@ -124,7 +124,7 @@ message FetchBlockIdAtHeightReq {
 message FetchBlockIdAtHeightRes {
   // The Block ID associated with the requested height.  None/null if not found.
   // optional
-  co.topl.consensus.models.BlockId blockId = 1;
+  xyz.stratalab.consensus.models.BlockId blockId = 1;
 }
 
 // Request type for FetchBlockIdAtDepth
@@ -137,7 +137,7 @@ message FetchBlockIdAtDepthReq {
 message FetchBlockIdAtDepthRes {
   // The Block ID associated with the requested depth.  None/null if not found.
   // optional
-  co.topl.consensus.models.BlockId blockId = 1;
+  xyz.stratalab.consensus.models.BlockId blockId = 1;
 }
 
 // Request type for SynchronizationTraversal
@@ -147,9 +147,9 @@ message SynchronizationTraversalReq {}
 message SynchronizationTraversalRes {
   oneof status {
     // Block ID applied
-    co.topl.consensus.models.BlockId applied = 1;
+    xyz.stratalab.consensus.models.BlockId applied = 1;
     // Block ID unapplied
-    co.topl.consensus.models.BlockId unapplied = 2;
+    xyz.stratalab.consensus.models.BlockId unapplied = 2;
   }
 }
 
@@ -158,7 +158,7 @@ message FetchNodeConfigReq {}
 
 // Response type for FetchNodeConfigRes
 message FetchNodeConfigRes {
-  co.topl.proto.node.NodeConfig config = 1 [(validate.rules).message.required = true];
+  xyz.stratalab.proto.node.NodeConfig config = 1 [(validate.rules).message.required = true];
 }
 
 // Request type for FetchEpochDataReq
@@ -168,5 +168,5 @@ message FetchEpochDataReq {
 
 // Response type for FetchEpochDataRes
 message FetchEpochDataRes {
-  co.topl.proto.node.EpochData epochData = 1;
+  xyz.stratalab.proto.node.EpochData epochData = 1;
 }

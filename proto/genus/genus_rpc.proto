@@ -4,7 +4,7 @@ syntax = "proto3";
 // Services provided by Genus
 ///////////////////////////////////////////////////////////////////////////////
 
-package co.topl.genus.services;
+package xyz.stratalab.genus.services;
 
 import 'brambl/models/address.proto';
 import 'brambl/models/identifier.proto';
