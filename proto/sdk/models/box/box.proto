@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package xyz.stratalab.brambl.models.box;
+package xyz.stratalab.sdk.models.box;
 
 import 'validate/validate.proto';
 
-import 'brambl/models/box/lock.proto';
-import 'brambl/models/box/value.proto';
+import 'sdk/models/box/lock.proto';
+import 'sdk/models/box/value.proto';
 
 // encapsulates a value and lock that is needed to be satisfied in order to unlock value
 message Box {

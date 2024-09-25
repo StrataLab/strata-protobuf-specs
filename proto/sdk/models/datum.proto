@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-package xyz.stratalab.brambl.models;
+package xyz.stratalab.sdk.models;
 
 import 'validate/validate.proto';
-import 'brambl/models/event.proto';
+import 'sdk/models/event.proto';
 
 // Datums represent a queryable product value of the arguments available from a certain Event. Datum may be
 // evaluated during the Quivr protocol execution by providing events as Datum in a Dynamic Context.
