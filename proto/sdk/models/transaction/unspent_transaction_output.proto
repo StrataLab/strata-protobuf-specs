@@ -1,14 +1,14 @@
 syntax = "proto3";
 
-package xyz.stratalab.brambl.models.transaction;
+package xyz.stratalab.sdk.models.transaction;
 
 import 'validate/validate.proto';
 
-import 'brambl/models/address.proto';
-import 'brambl/models/box/value.proto';
+import 'sdk/models/address.proto';
+import 'sdk/models/box/value.proto';
 
 // output of a transaction
 message UnspentTransactionOutput {
-    xyz.stratalab.brambl.models.LockAddress address = 1 [(validate.rules).message.required = true];
-    xyz.stratalab.brambl.models.box.Value value = 2 [(validate.rules).message.required = true];
+    xyz.stratalab.sdk.models.LockAddress address = 1 [(validate.rules).message.required = true];
+    xyz.stratalab.sdk.models.box.Value value = 2 [(validate.rules).message.required = true];
 }
