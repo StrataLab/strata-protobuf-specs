@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package xyz.stratalab.brambl.models.box;
+package xyz.stratalab.sdk.models.box;
 
 import 'validate/validate.proto';
 
 import 'quivr/models/shared.proto';
-import 'brambl/models/address.proto';
+import 'sdk/models/address.proto';
 
 import 'google/protobuf/wrappers.proto';
 import "google/protobuf/struct.proto";

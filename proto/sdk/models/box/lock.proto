@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package xyz.stratalab.brambl.models.box;
+package xyz.stratalab.sdk.models.box;
 
 
-import 'brambl/models/identifier.proto';
-import 'brambl/models/box/challenge.proto';
+import 'sdk/models/identifier.proto';
+import 'sdk/models/box/challenge.proto';
 
 // used to lock a box value and needs to be satisfied in order for the value of the box to be spent
 // should be able to calculate or retrieve the root of the Lock
@@ -27,7 +27,7 @@ message Lock {
     // Semi-public information
     // The most commonly shared construction between parties
     message Image {
-        repeated xyz.stratalab.brambl.models.LockId leaves = 1;
+        repeated xyz.stratalab.sdk.models.LockId leaves = 1;
         uint32 threshold = 2;
     }
 
@@ -36,7 +36,7 @@ message Lock {
     // Predicate Commitments are used to encumber boxes
     // use a Root here so we can provide a membership proof of the conditions
     message Commitment {
-        xyz.stratalab.brambl.models.AccumulatorRootId root = 1;
+        xyz.stratalab.sdk.models.AccumulatorRootId root = 1;
         uint32 threshold = 2;
     }
 }

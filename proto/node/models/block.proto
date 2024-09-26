@@ -3,25 +3,25 @@ syntax = "proto3";
 package xyz.stratalab.node.models;
 
 import 'consensus/models/block_header.proto';
-import 'brambl/models/transaction/io_transaction.proto';
-import 'brambl/models/identifier.proto';
+import 'sdk/models/transaction/io_transaction.proto';
+import 'sdk/models/identifier.proto';
 
 import "validate/validate.proto";
 
 // Captures the ordering of transaction IDs within a block
 message BlockBody {
   // A list of Transaction IDs included in this block
-  repeated xyz.stratalab.brambl.models.TransactionId transactionIds = 1;
+  repeated xyz.stratalab.sdk.models.TransactionId transactionIds = 1;
   // An optional Transaction ID that represents the reward transaction for this block.
-  xyz.stratalab.brambl.models.TransactionId rewardTransactionId = 2;
+  xyz.stratalab.sdk.models.TransactionId rewardTransactionId = 2;
 }
 
 // Captures the ordering of transactions (not just IDs) within a block
 message FullBlockBody {
   // A list of Transactions included in this block
-  repeated xyz.stratalab.brambl.models.transaction.IoTransaction transactions = 1;
+  repeated xyz.stratalab.sdk.models.transaction.IoTransaction transactions = 1;
   // An optional Transaction that represents the reward transaction for this block.
-  xyz.stratalab.brambl.models.transaction.IoTransaction rewardTransaction = 2;
+  xyz.stratalab.sdk.models.transaction.IoTransaction rewardTransaction = 2;
 }
 
 // Captures the header and all transactions in a block
