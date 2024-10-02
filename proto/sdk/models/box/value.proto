@@ -116,4 +116,8 @@ message Value {
     // gap of non-eligibility after a block is minted
     google.protobuf.UInt64Value slotGapLeaderElection = 13;
   }
+  
+  message ConfigProposal {
+     map<string, string> value = 1;
+  }
 }
