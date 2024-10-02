@@ -1,16 +1,18 @@
 name: strata_protobuf
-description: Stratalab proto definitions
+description: Stratalab proto definitions, including model types and gRPC services.
 
-publish_to: 'none'
+version: 0.1.0
 
-version: 0.1.0+1
+homepage: "https://www.stratalab.xyz"
+repository: "https://github.com/StrataLab/strata-protobuf-specs"
 
 environment:
-  sdk: ">=3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   protobuf: ^3.0.0
   grpc: ^4.0.1
+  fixnum: ^1.1.0
 
 dev_dependencies:
   test: ^1.24.3
