@@ -22,6 +22,7 @@ message Value {
     Group group = 4;
     Series series = 5;
     UpdateProposal updateProposal = 6;
+    ConfigProposal configProposal = 7;
   }
   // A payment token
   message LVL {
@@ -115,5 +116,9 @@ message Value {
     google.protobuf.UInt32Value kesKeyMinutes = 12;
     // gap of non-eligibility after a block is minted
     google.protobuf.UInt64Value slotGapLeaderElection = 13;
+  }
+  
+  message ConfigProposal {
+     map<string, string> value = 1;
   }
 }
