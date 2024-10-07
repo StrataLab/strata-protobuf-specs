@@ -78,6 +78,7 @@ Add Sonatype to the resolvers list in build.sbt. It should look like this:
 1. Install Dart [protoc_plugin](https://pub.dev/packages/protoc_plugin)
 1. `cd build/dart`
 1. `sh compile_protos.sh`
+1. `dart run tool/generate_export_files.dart`
 1. Reference the `protobuf-specs/build/dart` directory as a pubspec file dependency
     ```
     dependencies:

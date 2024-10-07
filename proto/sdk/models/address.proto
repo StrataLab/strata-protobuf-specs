@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-package co.topl.brambl.models;
+package xyz.stratalab.sdk.models;
 
 import 'validate/validate.proto';
-import 'brambl/models/identifier.proto';
+import 'sdk/models/identifier.proto';
 
 // Used in UTXOs
 message LockAddress {

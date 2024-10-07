@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package co.topl.consensus.models;
+package xyz.stratalab.consensus.models;
 
 import 'quivr/models/shared.proto';
 import 'consensus/models/operational_certificate.proto';
@@ -16,9 +16,9 @@ message StakingAddress {
 // A proof-of-stake registration
 message StakingRegistration {
     // the staker's address
-    co.topl.consensus.models.StakingAddress address = 1 [(validate.rules).message.required = true];
+    xyz.stratalab.consensus.models.StakingAddress address = 1 [(validate.rules).message.required = true];
     // the staker's commitment to a VRF VK and StakingAddress, signed using KES SK at timestep=0
-    co.topl.consensus.models.SignatureKesProduct signature = 2 [(validate.rules).message.required = true];
+    xyz.stratalab.consensus.models.SignatureKesProduct signature = 2 [(validate.rules).message.required = true];
 }
 
 // An active, registered participate in the consensus protocol, for a particular epoch.

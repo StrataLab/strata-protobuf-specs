@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-package co.topl.node.services;
+package xyz.stratalab.node.services;
+
+import "validate/validate.proto";
 
 service NetworkControlRpc {
   // Get current hostId
@@ -9,6 +11,7 @@ service NetworkControlRpc {
   // Instruct the node to forget peer i.e. close connection and remove peer from known hosts
   rpc ForgetPeer (ForgetPeerReq) returns (ForgetPeerRes);
   
+  // Add remote peer as known peer, node will node install connection to that peer automatically
   rpc AddPeer (AddPeerReq) returns (AddPeerRes);
   
 }
@@ -25,7 +28,7 @@ message GetHostIdRes {
   RpcHostId id = 1 [(validate.rules).message.required = true];
 }
 
-// Instruct the node to move connection to remote host to cold
+// Instruct the node to forget remote peer
 message ForgetPeerReq {
   // Host to move to cold
   RpcHostId id = 1 [(validate.rules).message.required = true];
@@ -35,7 +38,7 @@ message ForgetPeerReq {
 // NOTE: This is an async response;
 message ForgetPeerRes {}
 
-// Instruct the node to move connection to remote host to cold
+// Instruct the node to add remote peer as known peer
 message AddPeerReq {
   // Host to move to cold
   RpcHostId id = 1;

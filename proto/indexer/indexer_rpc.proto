@@ -1,16 +1,16 @@
 syntax = "proto3";
 
 ///////////////////////////////////////////////////////////////////////////////
-// Services provided by Genus
+// Services provided by indexer
 ///////////////////////////////////////////////////////////////////////////////
 
-package co.topl.genus.services;
+package xyz.stratalab.indexer.services;
 
-import 'brambl/models/address.proto';
-import 'brambl/models/identifier.proto';
-import 'brambl/models/event.proto';
+import 'sdk/models/address.proto';
+import 'sdk/models/identifier.proto';
+import 'sdk/models/event.proto';
 import 'consensus/models/block_id.proto';
-import 'genus/genus_models.proto';
+import 'indexer/indexer_models.proto';
 import 'google/protobuf/wrappers.proto';
 import 'node/models/block.proto';
 
@@ -18,17 +18,17 @@ import "validate/validate.proto";
 
 // Operations related to blocks
 service BlockService {
-  // Retrieve a block with the specified `id` from the configured Genus service. This returns its result when there is a
-  // block present in the genus service with the specified id and the confidence factor of the block is greater than or
+  // Retrieve a block with the specified `id` from the configured indexer service. This returns its result when there is a
+  // block present in the indexer service with the specified id and the confidence factor of the block is greater than or
   // equal to the value of the `confidenceFactor` parameter.
   rpc getBlockById(GetBlockByIdRequest) returns (BlockResponse);
 
-  // Retrieve the block at the specified height from the configured Genus service, where the height of the genesis block
-  // is 1. This returns a result when there is a block present in the genus service at the specified height and the
+  // Retrieve the block at the specified height from the configured indexer service, where the height of the genesis block
+  // is 1. This returns a result when there is a block present in the indexer service at the specified height and the
   // confidence factor of the block is greater than or equal to the value of the `confidenceFactor` parameter.
   rpc getBlockByHeight(GetBlockByHeightRequest) returns (BlockResponse);
 
-  // Retrieve the block at the specified depth from the configured Genus service. This returns its result immediately.
+  // Retrieve the block at the specified depth from the configured indexer service. This returns its result immediately.
   // The block at depth 1 is the highest block with a confidence factor that is greater than or
   // equal to the value of the `confidenceFactor` parameter.
   //
@@ -36,32 +36,32 @@ service BlockService {
   rpc getBlockByDepth(GetBlockByDepthRequest) returns (BlockResponse);
 }
 
-// Operations related to GenusBlock contents
+// Operations related to indexerBlock contents
 service TransactionService {
-  // Retrieve a transaction with the specified `id` from the configured Genus service. This returns its result when there is
-  // a transaction present in the genus service with the specified id and the confidence factor of the block that contains
+  // Retrieve a transaction with the specified `id` from the configured indexer service. This returns its result when there is
+  // a transaction present in the indexer service with the specified id and the confidence factor of the block that contains
   // the transaction is greater than or equal to the value of the `confidenceFactor` parameter.
   rpc getTransactionById(GetTransactionByIdRequest) returns (TransactionResponse);
 
   // Retrieve transactions that have an input or output associated with any of the specified addresses from the configured
-  // Genus service. This returns a stream of existing and future transactions from the genus service with the specified id
+  // indexer service. This returns a stream of existing and future transactions from the indexer service with the specified id
   // that are in a block with confidence factor greater than or equal to the value of the `confidenceFactor` parameter.
   rpc getTransactionByLockAddressStream(QueryByLockAddressRequest) returns(stream TransactionResponse);
 
   // In the future there will be a way to find transactions using a bloom filter.
   //rpc getTransactionByBloomFilter();
 
-  // Retrieve from the configured Genus service TxOs (spent or unspent) that are associated with any of the specified
+  // Retrieve from the configured indexer service TxOs (spent or unspent) that are associated with any of the specified
   // addresses and are in a block whose confidence factor is greater than or equal to the value of the `confidenceFactor`
   // parameter. This returns immediately.
   rpc getTxosByLockAddress(QueryByLockAddressRequest) returns(TxoLockAddressResponse);
 
-  // Retrieve from the configured Genus service TxOs (spent or unspent) that are associated with any of the specified
+  // Retrieve from the configured indexer service TxOs (spent or unspent) that are associated with any of the specified
   // addresses and are in a block whose confidence factor is greater than or equal to the value of the `confidenceFactor`
   // parameter. As new TxOs are added or UTxOs are spent that match the request, additional results are returned.
   rpc getTxosByLockAddressStream(QueryByLockAddressRequest) returns(stream TxoLockAddressResponse);
 
-  // Retrieve from the configured Genus service TxOs (spent or unspent) that contain the type of asset specified by the
+  // Retrieve from the configured indexer service TxOs (spent or unspent) that contain the type of asset specified by the
   // asset label and are in a block whose confidence factor is greater than or equal to the value of the `confidenceFactor`
   // parameter. As new TxOs are added or UTxOs are spent that match the request, additional results are returned.
   rpc getTxosByAssetLabel(QueryByAssetLabelRequest) returns(stream TxoResponse);
@@ -78,14 +78,14 @@ service TransactionService {
   //
   /////////////////////////////////////////////////////////////////////////////
 
-  // Create an index on transactions in the Genus database. The index will allow transactions to be found quickly based on
+  // Create an index on transactions in the indexer database. The index will allow transactions to be found quickly based on
   // the contents of their data field.
   //
-  // This returns as soon as the index is created. After the index is created, if the `populate` parameter is true then Genus
+  // This returns as soon as the index is created. After the index is created, if the `populate` parameter is true then indexer
   // will asynchronously populate the index.
   rpc createOnChainTransactionIndex(CreateOnChainTransactionIndexRequest) returns (CreateOnChainTransactionIndexResponse);
 
-  // Return a collection of `IndexSpec` objects, where each `IndexSpec` object corresponds to an index in the Genus database.
+  // Return a collection of `IndexSpec` objects, where each `IndexSpec` object corresponds to an index in the indexer database.
   // The content of each `IndexSpec` object is the same as the `IndexSpec ` object used to create the index.
   rpc getExistingTransactionIndexes(GetExistingTransactionIndexesRequest) returns (GetExistingTransactionIndexesResponse);
 
@@ -93,7 +93,7 @@ service TransactionService {
   // whose index records match the specified key values are included in the result.
   rpc getIndexedTransactions(GetIndexedTransactionsRequest) returns(stream TransactionResponse);
 
-  // Delete an index from the Genus database.
+  // Delete an index from the indexer database.
   rpc dropIndex(DropIndexRequest) returns (DropIndexResponse);
 }
 
@@ -110,10 +110,10 @@ service NetworkMetricsService {
 
 // Operations related to Value specifics Items. Value: TOPL, LVL,...
 service TokenService {
-  // Retrieve a group Policy with the specified `id` from the configured Genus service
+  // Retrieve a group Policy with the specified `id` from the configured indexer service
   rpc getGroupPolicy(QueryByGroupIdRequest) returns (GroupPolicyResponse);
 
-  // Retrieve a series Policy with the specified `id` from the configured Genus service
+  // Retrieve a series Policy with the specified `id` from the configured indexer service
   rpc getSeriesPolicy(QueryBySeriesIdRequest) returns (SeriesPolicyResponse);
 }
 
@@ -150,7 +150,7 @@ message GetBlockByDepthRequest {
 
 // Used to request a transaction by specifying its ID.
 message GetTransactionByIdRequest {
-  brambl.models.TransactionId transactionId = 1 [(validate.rules).message.required = true];
+  sdk.models.TransactionId transactionId = 1 [(validate.rules).message.required = true];
   // The default value for confidenceFactor is 0.9999999 (7 nines)
   ConfidenceFactor confidenceFactor = 2;
 }
@@ -188,7 +188,7 @@ message CreateOnChainTransactionIndexResponse {
 // Used to request TxOs by their associated lock address
 message QueryByLockAddressRequest {
   // Address of interest
-  brambl.models.LockAddress address = 1 [(validate.rules).message.required = true];
+  sdk.models.LockAddress address = 1 [(validate.rules).message.required = true];
   // The default value for confidenceFactor is 0.9999999 (7 nines)
   ConfidenceFactor confidenceFactor = 2;
   // Filter by status
@@ -216,21 +216,21 @@ message CreateOnChainTransactionIndexRequest {
 // Used to request a group policy associated by groupId
 message QueryByGroupIdRequest {
   // GroupId of interest
-  brambl.models.GroupId groupId = 1 [(validate.rules).message.required = true];
+  sdk.models.GroupId groupId = 1 [(validate.rules).message.required = true];
 }
 
 message GroupPolicyResponse {
-  brambl.models.Event.GroupPolicy groupPolicy = 1;
+  sdk.models.Event.GroupPolicy groupPolicy = 1;
 }
 
 // Used to request a series policy associated by seriesId
 message QueryBySeriesIdRequest {
   // GroupId of interest
-  brambl.models.SeriesId seriesId = 1 [(validate.rules).message.required = true];
+  sdk.models.SeriesId seriesId = 1 [(validate.rules).message.required = true];
 }
 
 message SeriesPolicyResponse {
-  brambl.models.Event.SeriesPolicy seriesPolicy = 1;
+  sdk.models.Event.SeriesPolicy seriesPolicy = 1;
 }
 
 // Definitions of existing database indexes.
@@ -244,7 +244,7 @@ message IndexDef {
   }
 }
 
-// The message that is sent when requesting information about the existing Genus indexes
+// The message that is sent when requesting information about the existing indexer indexes
 message GetExistingTransactionIndexesRequest {
 
 }
