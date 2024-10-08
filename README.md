@@ -93,3 +93,10 @@ See related projects
 - [BramblSc](https://github.com/Topl/BramblSc)
 - [Bifrost](https://github.com/Topl/Bifrost/)
 - [dart_topl_common](https://github.com/Topl/dart_topl_common)
+
+## Releasing
+To publish a new release/version:
+1. Create a new tag in the form `v1.0.0` (substituting the proper version)
+1. Push the tag to origin
+1. Verify release success by checking the Actions/Workflows
+1. Increment the version defined in `build/dart/pubspec.yaml`
