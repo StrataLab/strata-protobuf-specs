@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package xyz.stratalab.sdk.models;
+package org.plasmalabs.sdk.models;
 
 import 'validate/validate.proto';
 

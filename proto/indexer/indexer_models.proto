@@ -15,7 +15,7 @@ import 'google/protobuf/wrappers.proto';
 
 import "validate/validate.proto";
 
-package xyz.stratalab.indexer.services;
+package org.plasmalabs.indexer.services;
 
 // Used to identify the status of a Txo.
 enum TxoState {

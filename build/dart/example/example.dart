@@ -1,3 +1,3 @@
-import 'package:strata_protobuf/strata_protobuf.dart';
+import 'package:plasma_protobuf/plasma_protobuf.dart';
 
 final txo = UnspentTransactionOutput();

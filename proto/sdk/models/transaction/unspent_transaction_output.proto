@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package xyz.stratalab.sdk.models.transaction;
+package org.plasmalabs.sdk.models.transaction;
 
 import 'validate/validate.proto';
 
@@ -9,6 +9,6 @@ import 'sdk/models/box/value.proto';
 
 // output of a transaction
 message UnspentTransactionOutput {
-    xyz.stratalab.sdk.models.LockAddress address = 1 [(validate.rules).message.required = true];
-    xyz.stratalab.sdk.models.box.Value value = 2 [(validate.rules).message.required = true];
+    org.plasmalabs.sdk.models.LockAddress address = 1 [(validate.rules).message.required = true];
+    org.plasmalabs.sdk.models.box.Value value = 2 [(validate.rules).message.required = true];
 }

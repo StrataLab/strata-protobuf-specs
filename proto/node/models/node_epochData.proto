@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package xyz.stratalab.proto.node;
+package org.plasmalabs.proto.node;
 
 import "validate/validate.proto";
 import 'quivr/models/shared.proto';

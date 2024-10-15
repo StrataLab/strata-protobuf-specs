@@ -3,7 +3,7 @@ val scala3 = "3.4.1"
 
 inThisBuild(
   List(
-    organization := "xyz.stratalab",
+    organization := "org.plasmalabs",
     scalaVersion := scala213
   )
 )
@@ -13,7 +13,7 @@ lazy val commonSettings = Seq(
 )
 
 lazy val publishSettings = Seq(
-  homepage := Some(url("https://github.com/Stratalab/protobuf-specs")),
+  homepage := Some(url("https://github.com/PlasmaLaboratories/plasma-protobuf-specs")),
   licenses := Seq("MPL2.0" -> url("https://www.mozilla.org/en-US/MPL/2.0/")),
   ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org",
   sonatypeRepository := "https://s01.oss.sonatype.org/service/local",
@@ -65,7 +65,7 @@ lazy val protobufFs2 =
       commonSettings,
       publishSettings,
       buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion),
-      buildInfoPackage := "xyz.stratalab.buildinfo.protobuffs2",
+      buildInfoPackage := "org.plasmalabs.buildinfo.protobuffs2",
       libraryDependencies ++= Seq(
         "com.thesamet.scalapb" %% "scalapb-runtime" % scalapb.compiler.Version.scalapbVersion % "protobuf",
         "com.thesamet.scalapb" %% "scalapb-validate-core" % scalapb.validate.compiler.BuildInfo.version % "protobuf"

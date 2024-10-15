@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package xyz.stratalab.sdk.models.box;
+package org.plasmalabs.sdk.models.box;
 
 
 import 'sdk/models/address.proto';

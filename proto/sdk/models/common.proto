@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package xyz.stratalab.sdk.models.common;
+package org.plasmalabs.sdk.models.common;
 
 // Immutable byte representation of a value
 message ImmutableBytes {
