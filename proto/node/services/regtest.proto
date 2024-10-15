@@ -5,6 +5,8 @@ package xyz.stratalab.node.services;
 service RegtestRpc {
   // Instruct the node to make new blocks
   rpc MakeBlocks (MakeBlocksReq) returns (MakeBlocksRes);
+  
+  rpc SetVoting (SetVotingReq) returns (SetVotingRes);
 }
 
 // Instruct the node to make new blocks
@@ -16,3 +18,11 @@ message MakeBlocksReq {
 // Response indicating the node received the command.
 // NOTE: This is an async response; the blocks may not be ready yet
 message MakeBlocksRes {}
+
+// Instruct the node to vote for specified version or proposal
+message SetVotingReq {
+   int32 versionVoting = 1;
+   int32 proposalVoting = 2;
+}
+
+message SetVotingRes {}
