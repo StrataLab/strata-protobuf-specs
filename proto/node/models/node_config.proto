@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package xyz.stratalab.proto.node;
+package org.plasmalabs.proto.node;
 
 // Contains the configurations of the node over time
 message NodeConfig {

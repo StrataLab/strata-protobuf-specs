@@ -1,10 +1,10 @@
-name: strata_protobuf
-description: Stratalab proto definitions, including model types and gRPC services.
+name: plasma_protobuf
+description: PlasmaLaboratories proto definitions, including model types and gRPC services.
 
 version: 0.1.0
 
-homepage: "https://www.stratalab.xyz"
-repository: "https://github.com/StrataLab/strata-protobuf-specs"
+homepage: "https://plasmalabs.org"
+repository: "https://github.com/PlasmaLaboratories/plasma-protobuf-specs"
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

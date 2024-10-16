@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package xyz.stratalab.consensus.models;
+package org.plasmalabs.consensus.models;
 
 import 'consensus/models/block_id.proto';
 

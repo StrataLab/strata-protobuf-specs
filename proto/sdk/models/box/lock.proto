@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package xyz.stratalab.sdk.models.box;
+package org.plasmalabs.sdk.models.box;
 
 
 import 'sdk/models/identifier.proto';
@@ -27,7 +27,7 @@ message Lock {
     // Semi-public information
     // The most commonly shared construction between parties
     message Image {
-        repeated xyz.stratalab.sdk.models.LockId leaves = 1;
+        repeated org.plasmalabs.sdk.models.LockId leaves = 1;
         uint32 threshold = 2;
     }
 
@@ -36,7 +36,7 @@ message Lock {
     // Predicate Commitments are used to encumber boxes
     // use a Root here so we can provide a membership proof of the conditions
     message Commitment {
-        xyz.stratalab.sdk.models.AccumulatorRootId root = 1;
+        org.plasmalabs.sdk.models.AccumulatorRootId root = 1;
         uint32 threshold = 2;
     }
 }

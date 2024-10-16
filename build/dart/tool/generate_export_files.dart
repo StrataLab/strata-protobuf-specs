@@ -21,7 +21,7 @@ Future<void> exportStrataLib(
     final path = e.path;
     return "export '${path.substring(wd.path.length + 5)}';";
   }).join('\n');
-  final strataOutput = File('${wd.path}/lib/strata_protobuf.dart');
+  final strataOutput = File('${wd.path}/lib/plasma_protobuf.dart');
   await strataOutput.writeAsString(strataExportLines);
 }
 

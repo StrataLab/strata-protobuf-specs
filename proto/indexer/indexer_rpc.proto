@@ -4,7 +4,7 @@ syntax = "proto3";
 // Services provided by indexer
 ///////////////////////////////////////////////////////////////////////////////
 
-package xyz.stratalab.indexer.services;
+package org.plasmalabs.indexer.services;
 
 import 'sdk/models/address.proto';
 import 'sdk/models/identifier.proto';

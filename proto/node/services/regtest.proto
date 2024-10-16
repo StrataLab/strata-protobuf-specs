@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package xyz.stratalab.node.services;
+package org.plasmalabs.node.services;
 
 service RegtestRpc {
   // Instruct the node to make new blocks
