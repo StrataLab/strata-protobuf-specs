@@ -1,7 +1,7 @@
 name: plasma_protobuf
 description: PlasmaLaboratories proto definitions, including model types and gRPC services.
 
-version: 0.1.0
+version: 0.1.1
 
 homepage: "https://plasmalabs.org"
 repository: "https://github.com/PlasmaLaboratories/plasma-protobuf-specs"
